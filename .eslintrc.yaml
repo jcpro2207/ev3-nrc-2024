@@ -1,0 +1,45 @@
+extends:
+  - airbnb-base
+parserOptions:
+  ecmaVersion: latest
+env:
+  es2020: true
+root: true
+rules:
+  indent:
+    - 2
+    - tab
+    - outerIIFEBody: 0
+  max-len:
+    - 2
+    - code: 100
+      ignoreComments: true
+      ignoreTemplateLiterals: true
+  no-console:
+    - 0
+  no-continue:
+    - 0
+  no-multiple-empty-lines:
+    - 2
+    - max: 2
+  no-param-reassign:
+    - 2
+    - props: false
+  no-restricted-syntax:
+    - 2
+    - selector: ForInStatement
+      message: for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.
+    # - selector: ForOfStatement
+    #   message: iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.
+    - selector: LabeledStatement
+      message: Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.
+    - selector: WithStatement
+      message: "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+  no-tabs:
+    - 2
+    - allowIndentationTabs: true
+  no-underscore-dangle:
+    - 0
+  quotes:
+    - 2
+    - double
