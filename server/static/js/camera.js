@@ -1,12 +1,41 @@
 /* eslint-env browser */
-/* global Daily */
+/* global io */
 /* eslint-disable no-console */
 
-import updateStatus from "./updateStatus.js";
+// import updateStatus from "./updateStatus.js";
 
 const btnStream = document.getElementById("btn-stream");
 const videoDisplay = document.getElementById("video-display");
+const canvasEl = document.getElementById("canvas-el");
+const ctx = canvasEl.getContext("2d");
 
+const socket = io();
+
+btnStream.addEventListener("click", async () => {
+	const videoStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	videoDisplay.srcObject = videoStream;
+
+	const { width, height } = videoStream.getVideoTracks()[0].getSettings();
+	canvasEl.width = width;
+	canvasEl.height = height;
+
+	function f() {
+		ctx.drawImage(videoDisplay, 0, 0);
+		const dataURL = canvasEl.toDataURL("image/jpg");
+
+		// remove data:image/png;base64,
+		const imageData = dataURL.slice(22);
+
+		socket.emit("client-camera-frame", imageData);
+
+		window.requestAnimationFrame(f);
+	}
+	window.requestAnimationFrame(f);
+
+	// socket.emit("client-camera-frame");
+});
+
+/*
 let connected = false;
 updateStatus("not connected", 0, "not connected", 0);
 
@@ -54,3 +83,4 @@ btnStream.addEventListener("click", () => {
 		call.leave();
 	}
 });
+*/

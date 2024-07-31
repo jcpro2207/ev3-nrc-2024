@@ -1,0 +1,10 @@
+item {
+  id: 1
+  name: 'lego brick (trash)'
+}
+
+item {
+  id: 2
+  name: 'people (obstacle)'
+}
+

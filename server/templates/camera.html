@@ -7,26 +7,14 @@
 
 	<link rel="stylesheet" type="text/css" media="screen" href="static/main.css">
 
-	<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
-	<script src="static/js/camera.js" type="module" defer></script>
+	<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+	<!-- <script src="static/js/camera.js" type="module" defer></script> -->
+	<script src="../static/js/camera.js" defer></script>
 </head>
 <body>
 	<h1>CleanSweeper Camera</h1>
-	<main>
-		<video id="video-display" autoplay>This browser does not support the video element.</video>
-		<section>
-			<button id="btn-stream">Stream</button>
-			<div id="div-status-indicators">
-				<p>
-					<span class="status-indicator-title">Connection: </span>
-					<span id="connection-status-indicator">placeholder</span>
-				</p>
-				<p>
-					<span class="status-indicator-title">Video status: </span>
-					<span id="video-status-indicator">placeholder</span>
-				</p>
-			</div>
-		</section>
-	</main>
+	<video id="video-display" autoplay style="display:none;"></video>
+	<canvas id="canvas-el"></canvas>
+	<button id="btn-stream">Start streaming</button>
 </body>
 </html>
