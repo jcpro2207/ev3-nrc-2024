@@ -21,8 +21,9 @@ main {
 }
 section {
 	display: block;
+	text-align: left;
 }
-video {
+video, img {
 	border: 1.5px var(--fg-col) dashed;
 	margin: 0 1.2rem 1.2rem 1.2rem;
 	max-width: 90vw;
@@ -42,6 +43,14 @@ button:enabled:hover {
 }
 button:disabled:hover {
 	cursor: not-allowed;
+}
+main p {
+	font-family: monospace;
+	font-size: 1.2rem;
+}
+main p > span {
+	font-weight: bold;
+	font-size: 2rem;
 }
 #div-status-indicators {
 	text-align: left;

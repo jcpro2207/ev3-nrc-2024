@@ -28,9 +28,12 @@ btnStream.addEventListener("click", async () => {
 
 		socket.emit("client-camera-frame", imageData);
 
-		window.requestAnimationFrame(f);
+		// window.requestAnimationFrame(f);
+
+		setTimeout(f, 50);
 	}
-	window.requestAnimationFrame(f);
+	// window.requestAnimationFrame(f);
+	f();
 
 	// socket.emit("client-camera-frame");
 });

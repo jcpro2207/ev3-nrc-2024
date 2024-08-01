@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "server"
+		},
+		{
+			"path": "robot"
 		}
-	]
+	],
+	"settings": {
+		"ev3devBrowser.download.include": "**/*"
+	}
 }
