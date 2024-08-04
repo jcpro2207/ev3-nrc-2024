@@ -14,7 +14,7 @@ REAL_OBJECT_WIDTH = 3
 FOCAL_LENGTH = 500
 
 MIN_CONTOUR_AREA = 500
-CENTRE_RANGE = 25
+CENTRE_RANGE = 30
 
 # Function to calculate the centre of a contour
 def get_contour_centre(contour):
@@ -84,6 +84,7 @@ def detect_colour_and_draw(frame, midpoint_x):
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         
         detectedObjects.append((centre, distance, location))
+       
 
     return (frame, detectedObjects)
     # # Display the frame

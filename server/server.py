@@ -16,8 +16,8 @@ PORT = 8000
 CLIENT_WEBCAM = False
 
 # address of the bluetooth device of this computer (the one you are using right now)
-# JC's address: D8:12:65:88:74:74
-BLUETOOTH_ADDRESS = "60:f2:62:a9:d8:cc" 
+# JC's address: E4:B3:18:64:F3:DD
+BLUETOOTH_ADDRESS = "E4:B3:18:64:F3:DD" 
 CHANNEL = 5 # random number
 
 flask_app = Flask(__name__, static_folder="static", template_folder="templates")

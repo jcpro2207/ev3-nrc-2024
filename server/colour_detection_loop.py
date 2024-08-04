@@ -44,8 +44,9 @@ def colour_detection_loop(socketio_app: flask_socketio.SocketIO, client_sock: so
             return
 
         (processed_frame, detected_objects) = detect_colour_and_draw(raw_frame, midpoint_x)
+        print("1", detected_objects)
 
-        (retval, jpg_image) = cv2.imencode(".jpg", processed_frame)
+        (retval, jpg_image) = cv2.imencode(".jpg", processed_frame) 
 
         if retval is False:
             logging.warning("Warning: Image encoding unsuccessful, skipping frame.")
@@ -73,5 +74,6 @@ def colour_detection_loop(socketio_app: flask_socketio.SocketIO, client_sock: so
         # print(resultStr)
         try:
             client_sock.sendall(stringify_json(detected_objects).encode())
+            print("2",detected_objects)
         except OSError as e:
             logging.error(f"`OSError` while sending data: {e}")
